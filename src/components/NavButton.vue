@@ -1,6 +1,6 @@
 <template>
    <RouterLink :to=link>
-    <div class="bioa-container" :style="{background: color }">
+    <div class="nav-container" :style="{background: color }">
      {{ title }}
      </div>
    </RouterLink>
@@ -28,7 +28,7 @@ defineProps({
 </script>
 
 <style lang="scss">
-.bioa-container {
+.nav-container {
   background: #FFF;
   display: flex; 
   justify-content: center;
