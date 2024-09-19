@@ -1,7 +1,7 @@
 <template>
    <RouterLink :to=link>
     <div class="nav-container" :style="{background: color }">
-     {{ title }}
+      <span class="nav-container__text" v-html="title"></span>
      </div>
    </RouterLink>
 </template>
@@ -38,7 +38,8 @@ defineProps({
   flex-shrink: 0;
   border-radius: 0.1875rem;
   border: 1px solid #B5B5B5;
-  /* text */
+
+  &__text {
   color: #000;
   text-align: center;
   font-family: Inter;
@@ -46,6 +47,10 @@ defineProps({
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  }
+}
+
+a {
   text-decoration: none;
 }
 </style>
