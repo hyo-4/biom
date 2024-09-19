@@ -45,20 +45,32 @@
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container1_menu1" :key="index">
+              <NavButton :title="item.title" />
+            </div>
+          </div>
         </div>
         <div class="menu-page__menu_subcontainer">
           <div class="menu-page__title">
             <img src="@/assets/icon/ic_arrow_down.svg" />SMS/ Open Api 관련 설정
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container1_menu2" :key="index">
+              <NavButton :title="item.title" />
+            </div>
+          </div>
         </div>
         <div class="menu-page__menu_subcontainer">
           <div class="menu-page__title">
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container1_menu3" :key="index">
+              <NavButton :title="item.title" />
+            </div>
+          </div>
         </div>
       </div>
       <div class="menu-page__menu_container">
@@ -110,6 +122,7 @@
 </template>
 
 <script setup lang="ts">
+import NavButton from '@/components/NavButton.vue';
 import { ref } from 'vue';
 
 const searchQuery = ref(""); //검색어
@@ -175,6 +188,76 @@ const postitItem = [
 const performSearch= ()=> { //검색 함수
     console.log(searchQuery.value);
 }
+//메뉴 container 제목
+const container1_menu1 = [
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+
+]
+const container1_menu2 = [
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+
+]
+const container1_menu3 = [
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"병원 기본 정보",
+        color: "FFF",
+        link:"",
+    },
+
+]
 </script>
 
 <style lang="scss">
@@ -253,23 +336,26 @@ const performSearch= ()=> { //검색 함수
     justify-content: center;
     gap: 15px;
     .menu-item {
-    &__icon {
+        cursor: pointer;
+        &__icon {
         //img
-    }
-    &__title {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        color: #9B9B9B;
-        text-align: center;
-        font-family: Inter;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal;
-    }
+            cursor: pointer;
+        }
+        &__title {
+            cursor: pointer;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #9B9B9B;
+            text-align: center;
+            font-family: Inter;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
   }
 }
 
@@ -313,6 +399,11 @@ const performSearch= ()=> { //검색 함수
     font-weight: 700;
     line-height: normal;
     gap: 10px;
+  }
+  &__gridwrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
   }
 
 
