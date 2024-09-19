@@ -92,7 +92,11 @@
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container2_menu3" :key="index">
+              <NavButton :title="item.title" :color="item.color"/>
+            </div>
+          </div>
         </div>
       </div>
       <div class="menu-page__menu_container">
@@ -101,20 +105,32 @@
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container3_menu1" :key="index">
+              <NavButton :title="item.title" />
+            </div>
+          </div>
         </div>
         <div class="menu-page__menu_subcontainer">
           <div class="menu-page__title">
             <img src="@/assets/icon/ic_arrow_down.svg" />SMS/ Open Api 관련 설정
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container3_menu2" :key="index">
+              <NavButton :title="item.title" />
+            </div>
+          </div>
         </div>
         <div class="menu-page__menu_subcontainer">
           <div class="menu-page__title">
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container3_menu3" :key="index">
+              <NavButton :title="item.title" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -257,6 +273,263 @@ const container1_menu3 = [
         link:"",
     },
 
+]
+
+
+//수현
+const container2_menu3 = [
+    {
+        title:"개인별<br>휴무일",
+        color: "#FFC47F",
+        link:"",
+    },
+    {
+        title:"공휴일<br>휴무일 설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"해피콜<br>개별리콜 설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"대기화면<br>설정",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"거래처<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"수입지출<br>항목설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"빠른 수입지출<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"자주쓰는<br>주소편집",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"단축키<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"종이차트<br>출력설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"할인구분<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"페어목록<br>설정",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"카드 수수료<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"SMTP<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"화면보호 설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"수납설정",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"기타설정",
+        color: "FFF",
+        link:"",
+    },
+]
+const container3_menu1 = [
+    {
+        title:"병원<br>기본정보",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"환자<br>인적사항",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"예약화면",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"직원정보",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"로그인<br>비밀번호 변경",
+        color: "FFF",
+        link:"",
+    },
+
+]
+const container3_menu2 = [
+    {
+        title:"SMS<br>전송설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"진료 후 주의사항<br>문자전송",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"자주쓰는<br>SMS 문구",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"치과약도<br>MMS 설정",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"Open API<br>전화수신 시<br>문자설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"Open API<br>(CID) 설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"네이버<br>예약",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"알림톡 관리",
+        color: "FFF",
+        link:"",
+    },
+]
+const container3_menu3 = [
+    {
+        title:"개인별<br>휴무일",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"공휴일<br>휴무일 설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"해피콜<br>개별리콜 설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"대기화면<br>설정",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"거래처<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"수입지출<br>항목설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"빠른 수입지출<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"자주쓰는<br>주소편집",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"단축키<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"종이차트<br>출력설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"할인구분<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"페어목록<br>설정",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"카드 수수료<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"SMTP<br>설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"화면보호 설정",
+        color: "FFF",
+        link:"",
+    },
+    {
+        title:"수납설정",
+        color: "FFF",
+        link:"",
+    },
+
+    {
+        title:"기타설정",
+        color: "FFF",
+        link:"",
+    },
 ]
 </script>
 
@@ -405,8 +678,5 @@ const container1_menu3 = [
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
   }
-
-
-
 }
 </style>
