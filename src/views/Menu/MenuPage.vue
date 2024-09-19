@@ -400,7 +400,8 @@ const container_menu3 = [
   &__body {
     width: 100%;
     //background-color: blue;
-    max-height: 100%;
+    //max-height: 100%;
+    height: 75vh;
     display: flex;
     flex-direction: row;
     gap: 46px;
@@ -506,7 +507,6 @@ const container_menu3 = [
   &__menu_container {
     width: 100%;
     height: auto;
-    max-height: 78vh;
     overflow-y: auto;
     border-radius: 3px;
     border: 1px solid #B5B5B5;
