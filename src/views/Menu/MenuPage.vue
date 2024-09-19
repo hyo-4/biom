@@ -388,6 +388,7 @@ const container_menu3 = [
   overflow: hidden;
   position: relative;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   gap: 44px;
 

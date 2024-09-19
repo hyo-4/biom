@@ -1,5 +1,5 @@
 <template>
-  <RouterLink :to="link">
+  <RouterLink :to="props.link ?? '/'">
     <div class="nav-container" :style="{ background: props.color || '#FFF' }">
       <span class="nav-container__text" v-html="title"></span>
     </div>
