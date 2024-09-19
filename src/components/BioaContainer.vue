@@ -1,12 +1,20 @@
 <template>
-      <div class="bioa-container" :style="{background: color }">
-        {{ title }}
-    </div>
+   <RouterLink :to=link>
+    <div class="bioa-container" :style="{background: color }">
+     {{ title }}
+     </div>
+   </RouterLink>
 </template>
 
 <script setup lang="ts">
 import { defineProps } from 'vue';
+import { RouterLink } from 'vue-router';
+
 defineProps({
+  link: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     default: () => null,
@@ -38,5 +46,6 @@ defineProps({
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  text-decoration: none;
 }
 </style>
