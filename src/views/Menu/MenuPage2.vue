@@ -94,7 +94,7 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container2_menu3" :key="index">
-              <NavButton :title="item.title" :color="item.color"/>
+              <NavButton :title="item.title" :color="item.color" :link="item.link"/>
             </div>
           </div>
         </div>
@@ -107,7 +107,7 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container3_menu1" :key="index">
-              <NavButton :title="item.title" />
+              <NavButton :title="item.title" :link="item.link"/>
             </div>
           </div>
         </div>
@@ -117,7 +117,7 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container3_menu2" :key="index">
-              <NavButton :title="item.title" />
+              <NavButton :title="item.title" :link="item.link"/>
             </div>
           </div>
         </div>
@@ -128,7 +128,7 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container3_menu3" :key="index">
-              <NavButton :title="item.title" />
+              <NavButton :title="item.title" :link="item.link" />
             </div>
           </div>
         </div>
@@ -444,7 +444,7 @@ const container3_menu3 = [
     {
         title:"개인별<br>휴무일",
         color: "FFF",
-        link:"",
+        link:"/",
     },
     {
         title:"공휴일<br>휴무일 설정",
