@@ -126,8 +126,165 @@
         <div class="question-page__question_container_title">
           ※ 치과병력과 구강건강인식도 관련 문항
         </div>
+        <div class="question-page__question_container_subtitle">
+          1. 최근 1년간 구강병 치료나 관리를 목적으로 치과병(의)원에 가신 적이 있습니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            예
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            아니오
+          </label>
+        </div>
+        <div class="question-page__question_container_subtitle">
+          2. 현재 당뇨병을 앓고 계십니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            예
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            아니오
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            모르겠다
+          </label>
+        </div>
+        <div class="question-page__question_container_subtitle">
+          3. 현재 심혈관질환을 앓고 계십니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            예
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            아니오
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            모르겠다
+          </label>
+        </div>
+        <div class="question-page__question_container_subtitle">
+          4. 최근 3개월 동안, 치아나 잇몸 문제로 혹은 틀니 때문에 음식을 씹는 데에 불편감을 느끼신 적이 있습니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            예
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            아니오
+          </label>
+        </div>
+        <div class="question-page__question_container_subtitle">
+          5. 최근 3개월 동안, 치아가 쑤시거나 욱신거리거나 아픈 적이 있습니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            예
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            아니오
+          </label>
+        </div>
+        <div class="question-page__question_container_subtitle">
+          6. 최근 3개월 동안, 잇몸이 아프거나 피가 난 적이 있습니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            예
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            아니오
+          </label>
+        </div>
+        <div class="question-page__question_container_subtitle">
+          7. 스스로 생각하실 때에 치아와 잇몸 등 귀하의 구강건강이 어떤 편이라고 생각하십니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            매우 좋음
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            좋음
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            보통
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            나쁨
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            매우 나쁨
+          </label>
+        </div>
         <div class="question-page__question_container_title">
           ※ 구강건강 습관(설탕섭취, 구강위생, 불소이용, 흡연) 관련 문항
+        </div>
+        <div class="question-page__question_container_subtitle">
+          8. 치아 닦는 방법을 치과나 보건소에서 배운 적이 있습니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            예
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            아니오
+          </label>
+        </div>
+        <div class="question-page__question_container_subtitle">
+          9. 어제 하루 동안 치아를 몇 번 닦으셨습니까?
+        </div>
+        <div class="question-page__radio-group">
+          <label>
+            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
+            0회
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            1회
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            2회
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            3회
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            4회
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            5회
+          </label>
+          <label>
+            <input type="radio" value="home" v-model="selectedOption" name="options" />
+            6회 이상
+          </label>
         </div>
       </div>
     </div>
@@ -158,7 +315,7 @@ const locale = reactive(ko);
 
   &__body {
     width: 100%;
-    height: 75vh;
+    height: 90vh;
     display: flex;
     flex-direction: row;
     gap: 46px;
@@ -378,6 +535,14 @@ const locale = reactive(ko);
     text-align: left;
     font-family: Inter;
     font-size: 0.8125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__question_container_subtitle {
+    color: #000;
+    font-family: Inter;
+    font-size: 0.875rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
