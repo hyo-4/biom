@@ -55,7 +55,7 @@
             <div class="question-page__title">
               <img src="@/assets/icon/ic_arrow_right.svg" /> 검진일
             </div>
-            <input type="date" class="form-control" v-model="recruit_endperiod" required>
+            <input type="date" class="form-control" placeholder="년 월 일" v-model="examDate">
           </div>
           <div class="question-page__custom_subcontainer_location">
             <div class="question-page__title">
@@ -85,7 +85,7 @@
           <div class="question-page__title">
             <img src="@/assets/icon/ic_arrow_right.svg" /> 당일 구강검진 수검자
           </div>
-          <input type="date" class="form-control" v-model="recruit_endperiod" required>
+          <input type="date" class="form-control" v-model="currentDayPatients" required>
           <div class="question-page__custom_subcontainer_today_button">
             @@
           </div>
@@ -109,12 +109,8 @@
               학교밖
             </label>
           </div>
-          <div class="question-page__search_box">
-            @@
-          </div>
-          <div class="question-page__search_button">
-            검색
-          </div>
+          <input v-model="searchQuery" type="text" class="question-page__search-input" placeholder="검색" />
+          <button class="question-page__search-submit" @click="performSearch">검색</button>
         </div>
         <div class="question-page__custom_subcontainer_footer">
         </div>
@@ -290,9 +286,14 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 
-
-
+const examDate = ref('');
+const currentDayPatients = ref('');
+const searchQuery = ref(""); //검색어
+const performSearch= ()=> { //검색 함수
+    alert(searchQuery.value);
+}
 </script>
 
 <style lang="scss">
@@ -350,8 +351,7 @@
     flex-shrink: 0;
     justify-content: center;
     align-items: center;
-    border-radius: 3px;
-    border: 1px solid #B5B5B5;
+    border: 1px solid #B4B4B4;
     flex-direction: row;
     box-sizing: border-box;
     /* text */
@@ -372,7 +372,6 @@
   &__custom_subcontainer_body_button2 {
     display: flex;
     flex-shrink: 0;
-    border-radius: 3px;
     border: 1px solid #B5B5B5;
     flex-direction: row;
     box-sizing: border-box;
@@ -395,15 +394,13 @@
   &__custom_subcontainer_body {
     height: auto;
     overflow-y: auto;
-    border-radius: 3px;
     border: 1px solid #B5B5B5;
     padding: 20px 20px;
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     box-sizing: border-box;
     gap: 20px;
-    position: relative;
-
   }
   &__custom_subcontainer_body_row {
     display: flex;
@@ -414,13 +411,6 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    position: relative;
-  }
-  &__datepicker {
-    position: absolute; /* DatePicker를 절대 위치로 설정 */
-    top: 100%; /* 상위 요소의 아래쪽으로 위치 설정 */
-    left: 0; /* 왼쪽 정렬 */
-     z-index: 9999; /* 다른 요소 위에 오도록 z-index 설정 */
   }
   &__custom_subcontainer_location {
     display: flex;
@@ -468,6 +458,22 @@
     flex-direction: row;
     gap: 10px;
   }
+  &__search-input {
+    width: 8rem;
+  }
+  &__search-submit {
+    flex: 1;
+    background: white;
+    border: 1px solid #B4B4B4;
+    /* text */
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
   &__search_box {
     flex: 1;
     flex-shrink: 0;
@@ -505,7 +511,6 @@
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
-    border-radius: 3px;
     border: 1px solid #B5B5B5;
   }
 
@@ -513,7 +518,6 @@
     flex: 2;
     height: auto;
     overflow-y: auto;
-    border-radius: 3px;
     border: 1px solid #B5B5B5;
     display: flex;
     flex-direction: column;
@@ -546,6 +550,14 @@
   }
   &__question_container_subtitle {
     color: #000;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__checkbox-group {
+    color: #8B8B8B;
     font-family: Inter;
     font-size: 0.875rem;
     font-style: normal;
