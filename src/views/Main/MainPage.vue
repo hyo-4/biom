@@ -1,7 +1,12 @@
 <template>
   <main>
     <nav>
-      <RouterLink to="/menu">Menu</RouterLink>
+      <div>
+        <RouterLink to="/menu">메뉴 페이지</RouterLink>
+      </div>
+      <div>
+        <RouterLink to="/client">고객관리 페이지</RouterLink>
+      </div>
     </nav>
   </main>
 </template>
