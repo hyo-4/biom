@@ -554,6 +554,7 @@ const container3_menu3 = [
   &__body {
     width: 100%;
     //background-color: blue;
+    height: 75vh;
     display: flex;
     flex-direction: row;
     gap: 46px;
