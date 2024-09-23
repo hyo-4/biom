@@ -15,15 +15,17 @@
             <div class="question-page__title">
               <img src="@/assets/icon/ic_arrow_right.svg" /> 선택된 검진 대상자 정보
             </div>
-            <div class="question-page__custom_subcontainer_body_button">
-              정보수정
-            </div>
-            <div class="question-page__custom_subcontainer_body_button">
-              삭제
+            <div class="question-page__custom_subcontainer_body_row">
+              <div class="question-page__custom_subcontainer_body_button">
+                정보수정
+              </div>
+              <div class="question-page__custom_subcontainer_body_button">
+                삭제
+              </div>
             </div>
           </div>
           <div class="question-page__custom_subcontainer_row">
-            <div>
+            <div class="question-page__custom_subcontainer_information_text">
               <div class="question-page__custom_subcontainer_row">
                 <div class="question-page__subtitle">
                   • 이 름 박 민 송
@@ -49,18 +51,18 @@
               검진일자<br>공단전송
             </div>
           </div>
-          <div class="question-page__custom_subcontainer_row">
+          <div class="question-page__custom_subcontainer_date">
             <div class="question-page__title">
-            <img src="@/assets/icon/ic_arrow_right.svg" /> 검진일
+              <img src="@/assets/icon/ic_arrow_right.svg" /> 검진일
+            </div>
+            <DatePicker v-model="picked" :locale="locale" :weekStartsOn="0" :inputFormat="inputFormat"
+              :clearable="true" />
           </div>
-          <DatePicker v-model="picked" :locale="locale" :weekStartsOn="0" :inputFormat="inputFormat"
-            :clearable="true" />
-          </div>
-          <div class="question-page__custom_subcontainer_row">
+          <div class="question-page__custom_subcontainer_location">
             <div class="question-page__title">
               <img src="@/assets/icon/ic_arrow_right.svg" /> 검진장소
             </div>
-            <div class="radio-group">
+            <div class="question-page__radio-group">
               <label>
                 <input type="radio" value="hospital" v-model="selectedOption" name="options" />
                 내원 검진
@@ -72,11 +74,11 @@
             </div>
           </div>
         </div>
-        <div class="question-page__custom_subcontainer_top">
-          <div class="question-page__custom_subcontainer_top_button">
+        <div class="question-page__custom_subcontainer_body_button2_layout">
+          <div class="question-page__custom_subcontainer_body_button2">
             @@
           </div>
-          <div class="question-page__custom_subcontainer_top_button">
+          <div class="question-page__custom_subcontainer_body_button2">
             @@
           </div>
         </div>
@@ -84,15 +86,37 @@
           <div class="question-page__title">
             <img src="@/assets/icon/ic_arrow_right.svg" /> 당일 구강검진 수검자
           </div>
-          <div class="question-page__custom_subcontainer_top_button">
-            @@
-          </div>
-          <div class="question-page__custom_subcontainer_top_button">
+          <DatePicker v-model="picked" :locale="locale" :weekStartsOn="0" :inputFormat="inputFormat"
+            :clearable="true" />
+          <div class="question-page__custom_subcontainer_today_button">
             @@
           </div>
         </div>
-        <div>
-          당일 구강검진 수검자
+        <div class="question-page__search">
+          <div class="question-page__checkbox-group">
+            <label>
+              <input type="checkbox" value="option1" v-model="selectedOptions" />
+              일반/생애
+            </label>
+            <label>
+              <input type="checkbox" value="option2" v-model="selectedOptions" />
+              영유아
+            </label>
+            <label>
+              <input type="checkbox" value="option3" v-model="selectedOptions" />
+              학생검진
+            </label>
+            <label>
+              <input type="checkbox" value="option4" v-model="selectedOptions" />
+              학교밖
+            </label>
+          </div>
+          <div class="question-page__search_box">
+            @@
+          </div>
+          <div class="question-page__search_button">
+            검색
+          </div>
         </div>
         <div class="question-page__custom_subcontainer_footer">
         </div>
@@ -156,6 +180,7 @@ const locale = reactive(ko);
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: 50px;
   }
   &__custom_subcontainer_top {
     display: flex;
@@ -185,7 +210,35 @@ const locale = reactive(ko);
     font-weight: 400;
     line-height: normal;
   }
+  &__custom_subcontainer_body_button2_layout {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    gap: 20px;
+  }
+  &__custom_subcontainer_body_button2 {
+    display: flex;
+    flex-shrink: 0;
+    border-radius: 3px;
+    border: 1px solid #B5B5B5;
+    flex-direction: row;
+    box-sizing: border-box;
+    padding: 10px 40px;
 
+    /* text */
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__custom_subcontainer_information_text {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   &__custom_subcontainer_body {
     height: auto;
     overflow-y: auto;
@@ -201,13 +254,21 @@ const locale = reactive(ko);
     display: flex;
     flex-direction: row;
     gap: 20px;
-
+  }
+  &__custom_subcontainer_date {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+  &__custom_subcontainer_location {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
   }
   &__custom_subcontainer_body_button {
-    width: 4.0625rem;
-    height: 3.125rem;
     flex-shrink: 0;
     border: 1px solid #A9A9A9;
+    padding: 5px 5px;
     justify-content: center;
     align-items: center;
     /* text */
@@ -224,7 +285,59 @@ const locale = reactive(ko);
     flex-direction: row;
     gap: 20px;
   }
-
+  &__custom_subcontainer_today_button {
+    flex: 1;
+    flex-shrink: 0;
+    border: 1px solid #A9A9A9;
+    padding: 5px 5px;
+    justify-content: center;
+    align-items: center;
+    /* text */
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__search {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  &__search_box {
+    flex: 1;
+    flex-shrink: 0;
+    border: 1px solid #A9A9A9;
+    padding: 5px 5px;
+    justify-content: center;
+    align-items: center;
+    /* text */
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__search_button {
+    flex: 1;
+    flex-shrink: 0;
+    border: 1px solid #A9A9A9;
+    padding: 5px 5px;
+    justify-content: center;
+    align-items: center;
+    /* text */
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
   &__custom_subcontainer_footer {
     flex-grow: 1;
     display: flex;
@@ -281,6 +394,14 @@ const locale = reactive(ko);
   &__subtitle {
     color: #8B8B8B;
     text-align: justify;
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__radio-group {
+    color: #8B8B8B;
     font-family: Inter;
     font-size: 0.875rem;
     font-style: normal;
