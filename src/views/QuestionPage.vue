@@ -55,8 +55,7 @@
             <div class="question-page__title">
               <img src="@/assets/icon/ic_arrow_right.svg" /> 검진일
             </div>
-            <DatePicker v-model="picked" :locale="locale" :weekStartsOn="0" :inputFormat="inputFormat"
-              :clearable="true" />
+            <input type="date" class="form-control" v-model="recruit_endperiod" required>
           </div>
           <div class="question-page__custom_subcontainer_location">
             <div class="question-page__title">
@@ -86,8 +85,7 @@
           <div class="question-page__title">
             <img src="@/assets/icon/ic_arrow_right.svg" /> 당일 구강검진 수검자
           </div>
-          <DatePicker v-model="picked" :locale="locale" :weekStartsOn="0" :inputFormat="inputFormat"
-            :clearable="true" />
+          <input type="date" class="form-control" v-model="recruit_endperiod" required>
           <div class="question-page__custom_subcontainer_today_button">
             @@
           </div>
@@ -292,11 +290,8 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
-import DatePicker from 'vue3-datepicker';
-import { ko } from 'date-fns/locale';
 
-const locale = reactive(ko);
+
 
 </script>
 
@@ -315,12 +310,13 @@ const locale = reactive(ko);
 
   &__body {
     width: 100%;
-    height: 90vh;
+    height: 95vh;
     display: flex;
     flex-direction: row;
     gap: 46px;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
   }
 
   &__custom_container {
@@ -406,6 +402,8 @@ const locale = reactive(ko);
     flex-direction: column;
     box-sizing: border-box;
     gap: 20px;
+    position: relative;
+
   }
   &__custom_subcontainer_body_row {
     display: flex;
@@ -416,6 +414,13 @@ const locale = reactive(ko);
     display: flex;
     flex-direction: row;
     gap: 20px;
+    position: relative;
+  }
+  &__datepicker {
+    position: absolute; /* DatePicker를 절대 위치로 설정 */
+    top: 100%; /* 상위 요소의 아래쪽으로 위치 설정 */
+    left: 0; /* 왼쪽 정렬 */
+     z-index: 9999; /* 다른 요소 위에 오도록 z-index 설정 */
   }
   &__custom_subcontainer_location {
     display: flex;
