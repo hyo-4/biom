@@ -4,15 +4,13 @@ import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import App from "./App.vue";
 import MainPage from "./views/Main/MainPage.vue";
 import MenuPage from "./views/Menu/MenuPage.vue";
-import {
-  createRouter,
-  createWebHashHistory,
-  createWebHistory,
-} from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
+import ClientManagePage from "./views/ClientManage/ClientManagePage.vue";
 
 const routes = [
   { path: "/", component: MainPage },
   { path: "/menu", component: MenuPage },
+  { path: "/client", component: ClientManagePage },
 ];
 
 const biomrouter = createRouter({
