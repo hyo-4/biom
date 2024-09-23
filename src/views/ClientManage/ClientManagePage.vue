@@ -117,9 +117,25 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(client, rowIndex) in clientData" :key="rowIndex">
+          <tr
+            v-for="(client, rowIndex) in clientData"
+            :key="rowIndex"
+            class="client-page__table-row"
+          >
             <td v-for="(name, colIndex) in tableName" :key="colIndex">
-              {{ client[name as keyof typeof client] }}
+              <template v-if="name === '선택'">
+                <input
+                  type="checkbox"
+                  :value="client['선택']"
+                  v-model="client['선택']"
+                />
+              </template>
+              <template v-else>
+                <span
+                  @click="navigateToDetails(client)"
+                  >{{ client[name as keyof typeof client] }}</span
+                >
+              </template>
             </td>
           </tr>
         </tbody>
@@ -151,6 +167,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import UnfulfilledAppointmentsView from './UnfulfilledAppointmentsView.vue';
+import { useRouter } from 'vue-router';
 
 const checkOptions = ['해피콜', '개별리콜', '자동리콜'];
 const checkedOptions = ref([]);
@@ -181,7 +198,8 @@ const tableName = [
     "전화날짜","이름","구분","상태","전화번호","해피콜/개별리콜 내용","전화번호","기타 사항","리콜 후 예약,내원","최종 내원일","전화번호","비고","선택",
 ]
 
-interface ClientData {
+export interface ClientData {
+  "id": string;
   "전화날짜": string;
   "이름": string;
   "구분": string;
@@ -197,6 +215,7 @@ interface ClientData {
 
 const clientData: ClientData[] = [
   {
+    "id": "1",
     "전화날짜": "2024-09-01",
     "이름": "홍길동",
     "구분": "신규",
@@ -210,6 +229,7 @@ const clientData: ClientData[] = [
     "선택": false,
   },
   {
+    "id": "2",
     "전화날짜": "2024-09-02",
     "이름": "김영희",
     "구분": "기존",
@@ -223,6 +243,7 @@ const clientData: ClientData[] = [
     "선택": true,
   },
   {
+    "id": "3",
     "전화날짜": "2024-09-03",
     "이름": "이민호",
     "구분": "기존",
@@ -235,6 +256,20 @@ const clientData: ClientData[] = [
     "비고": "클레임 고객",
     "선택": false,
   },
+  {
+    "id": "4",
+    "전화날짜": "2024-09-02",
+    "이름": "김영희",
+    "구분": "기존",
+    "상태": "리콜완료",
+    "전화번호": "010-2345-6789",
+    "해피콜/개별리콜 내용": "전화 연결 안됨",
+    "기타 사항": "재시도 예정",
+    "리콜 후 예약,내원": "미정",
+    "최종 내원일": "2024-07-15",
+    "비고": "주의 고객",
+    "선택": true,
+  },
 
 ];
 const tabs = [
@@ -245,6 +280,12 @@ const tabs = [
   { name: '고객불만사항' },
 ];
 const activeTab = ref(0);
+
+const router = useRouter();
+
+function navigateToDetails(client: any) {
+  router.push(`/client/${client.id}`);
+}
 </script>
 <style lang="scss">
 .client-page{
@@ -336,7 +377,7 @@ const activeTab = ref(0);
     padding: 10px;
     box-sizing: border-box;
     label{
-        margin-right: 10px;
+        margin-right: 16px;
     }
   }
   &__search-except {
@@ -415,6 +456,10 @@ const activeTab = ref(0);
       background-color: #ffffff;
     }
   }
+}
+&__table-row {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 &__tab-container {
   display: flex;
