@@ -225,7 +225,7 @@ const clientData: ClientData[] = [
     "기타 사항": "추가 문의 없음",
     "리콜 후 예약,내원": "내원 예정",
     "최종 내원일": "2024-08-30",
-    "비고": "VIP 고객",
+    "비고": "VIP",
     "선택": false,
   },
   {
@@ -239,7 +239,7 @@ const clientData: ClientData[] = [
     "기타 사항": "재시도 예정",
     "리콜 후 예약,내원": "미정",
     "최종 내원일": "2024-07-15",
-    "비고": "주의 고객",
+    "비고": "N",
     "선택": true,
   },
   {
@@ -253,7 +253,7 @@ const clientData: ClientData[] = [
     "기타 사항": "불만 접수",
     "리콜 후 예약,내원": "내원 예정",
     "최종 내원일": "2024-08-20",
-    "비고": "클레임 고객",
+    "비고": "N",
     "선택": false,
   },
   {
@@ -267,9 +267,52 @@ const clientData: ClientData[] = [
     "기타 사항": "재시도 예정",
     "리콜 후 예약,내원": "미정",
     "최종 내원일": "2024-07-15",
-    "비고": "주의 고객",
+    "비고": "N",
     "선택": true,
   },
+  {
+    "id": "4",
+    "전화날짜": "2024-09-02",
+    "이름": "김영희",
+    "구분": "기존",
+    "상태": "리콜완료",
+    "전화번호": "010-2345-6789",
+    "해피콜/개별리콜 내용": "전화 연결 안됨",
+    "기타 사항": "재시도 예정",
+    "리콜 후 예약,내원": "미정",
+    "최종 내원일": "2024-07-15",
+    "비고": "VIP",
+    "선택": true,
+  },
+  {
+    "id": "4",
+    "전화날짜": "2024-09-02",
+    "이름": "김영희",
+    "구분": "기존",
+    "상태": "리콜완료",
+    "전화번호": "010-2345-6789",
+    "해피콜/개별리콜 내용": "전화 연결 안됨",
+    "기타 사항": "재시도 예정",
+    "리콜 후 예약,내원": "미정",
+    "최종 내원일": "2024-07-15",
+    "비고": "VVIP",
+    "선택": true,
+  },
+  {
+    "id": "4",
+    "전화날짜": "2024-09-02",
+    "이름": "김영희",
+    "구분": "기존",
+    "상태": "리콜완료",
+    "전화번호": "010-2345-6789",
+    "해피콜/개별리콜 내용": "전화 연결 안됨",
+    "기타 사항": "재시도 예정",
+    "리콜 후 예약,내원": "미정",
+    "최종 내원일": "2024-07-15",
+    "비고": "N",
+    "선택": true,
+  },
+
 
 ];
 const tabs = [
@@ -291,9 +334,9 @@ function navigateToDetails(client: any) {
 .client-page{
   width: 100%;
   height: 100%;
+  max-height: 100vh;
   padding: 1rem;
   box-sizing: border-box;
-  overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -361,8 +404,8 @@ function navigateToDetails(client: any) {
     border-bottom: 1px solid #B5B5B5;
   }
   &__search-title{
-    width: 10%;
-    min-width: 4rem;
+    width: 4.5rem;
+    min-width: 4.5rem;
     background-color: #F0F0F0;
     height: 100%;
     display: flex;
@@ -419,6 +462,7 @@ function navigateToDetails(client: any) {
   &__table-container {
     width: 100%;
     height: 35vh;
+    min-height: 35vh;
     border: 1px solid #B5B5B5;
     border-radius: 3px;
     overflow-x: auto;
@@ -492,7 +536,8 @@ function navigateToDetails(client: any) {
   border: 1px solid #ccc;
   border-radius: 0 5px 5px 5px;
   background-color: #fafafa;
-  max-height: 28vh;
+  max-height: 29vh;
+  height: auto;
   overflow-y: auto;
 }
 }
