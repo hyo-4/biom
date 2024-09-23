@@ -46,8 +46,8 @@
             정보
           </div>
           <div class="menu-page__gridwrapper">
-            <div v-for="(item, index) in container1_menu1" :key="index">
-              <NavButton :title="item.title" />
+            <div v-for="(item, index) in container_menu1" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
             </div>
           </div>
         </div>
@@ -56,8 +56,8 @@
             <img src="@/assets/icon/ic_arrow_down.svg" />SMS/ Open Api 관련 설정
           </div>
           <div class="menu-page__gridwrapper">
-            <div v-for="(item, index) in container1_menu2" :key="index">
-              <NavButton :title="item.title" />
+            <div v-for="(item, index) in container_menu2" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
             </div>
           </div>
         </div>
@@ -67,8 +67,8 @@
             정보
           </div>
           <div class="menu-page__gridwrapper">
-            <div v-for="(item, index) in container1_menu3" :key="index">
-              <NavButton :title="item.title" />
+            <div v-for="(item, index) in container_menu3" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
             </div>
           </div>
         </div>
@@ -79,20 +79,32 @@
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container_menu1" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
+            </div>
+          </div>
         </div>
         <div class="menu-page__menu_subcontainer">
           <div class="menu-page__title">
             <img src="@/assets/icon/ic_arrow_down.svg" />SMS/ Open Api 관련 설정
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container_menu2" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
+            </div>
+          </div>
         </div>
         <div class="menu-page__menu_subcontainer">
           <div class="menu-page__title">
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container_menu3" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
+            </div>
+          </div>
         </div>
       </div>
       <div class="menu-page__menu_container">
@@ -101,20 +113,32 @@
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container_menu1" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
+            </div>
+          </div>
         </div>
         <div class="menu-page__menu_subcontainer">
           <div class="menu-page__title">
             <img src="@/assets/icon/ic_arrow_down.svg" />SMS/ Open Api 관련 설정
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container_menu2" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
+            </div>
+          </div>
         </div>
         <div class="menu-page__menu_subcontainer">
           <div class="menu-page__title">
             <img src="@/assets/icon/ic_arrow_down.svg" />웹 실행에 필요한 필수
             정보
           </div>
-          <div>body</div>
+          <div class="menu-page__gridwrapper">
+            <div v-for="(item, index) in container_menu3" :key="index">
+              <NavButton :title="item.title" :color="item.color" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -189,71 +213,166 @@ const performSearch= ()=> { //검색 함수
     console.log(searchQuery.value);
 }
 //메뉴 container 제목
-const container1_menu1 = [
+const container_menu1 = [
     {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"병원<br> 기본 정보",
+        color: "#FFF",
         link:"",
     },
     {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"환자<br> 인적사항",
+        color: "#FFF",
         link:"",
     },
     {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"예약화면",
+        color: "#FFF",
         link:"",
     },
     {
-        title:"병원 기본 정보",
-        color: "FFF",
-        link:"",
-    },
-
-]
-const container1_menu2 = [
-    {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"직원정보",
+        color: "#FFF",
         link:"",
     },
     {
-        title:"병원 기본 정보",
-        color: "FFF",
-        link:"",
-    },
-    {
-        title:"병원 기본 정보",
-        color: "FFF",
-        link:"",
-    },
-    {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"로그인<br> 비밀번호 변경",
+        color: "#FFF5C2",
         link:"",
     },
 
 ]
-const container1_menu3 = [
+const container_menu2 = [
     {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"SMS<br>전송설정",
+        color: "#FFF",
         link:"",
     },
     {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"진료 후 주의사항<br>문자전송",
+        color: "#FFF",
         link:"",
     },
     {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"자주쓰는<br>SMS 문구",
+        color: "#FFF",
         link:"",
     },
     {
-        title:"병원 기본 정보",
-        color: "FFF",
+        title:"SMS<br>전송설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"치과약도<br>MMS 설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"Open API<br>전화수신 시<br>문자설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"Open API<br>(CID) 설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"네이버<br>예약",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"알림톡<br>관리",
+        color: "#FFF",
+        link:"",
+    },
+
+]
+const container_menu3 = [
+    {
+        title:"개인별<br>휴무일",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"공휴일<br>휴무일 설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"해피콜<br>개별리콜 설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"대기화면<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"거래처<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"수입지출<br>항목설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"빠른 수입지출<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"자주쓰는<br>주소편집",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"단축키<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"종이차트<br>출력설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"할인구분<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"페어목록<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"카드 수수료<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"SMTP<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"화면보호<br>설정",
+        color: "#FFF",
+        link:"",
+    },
+    {
+        title:"수납설정",
+        color: "#FFF5C2",
+        link:"",
+    },
+    {
+        title:"기타설정",
+        color: "#FFF5C2",
         link:"",
     },
 
@@ -269,6 +388,7 @@ const container1_menu3 = [
   overflow: hidden;
   position: relative;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   gap: 44px;
 
@@ -281,9 +401,13 @@ const container1_menu3 = [
   &__body {
     width: 100%;
     //background-color: blue;
+    //max-height: 100%;
+    height: 75vh;
     display: flex;
     flex-direction: row;
     gap: 46px;
+    box-sizing: border-box;
+    overflow: hidden;
   }
   &__topbar_left{
     flex: 1.5;
@@ -325,6 +449,7 @@ const container1_menu3 = [
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
+    padding: 11px;
     line-height: normal;
     cursor: pointer;
   }
@@ -382,15 +507,20 @@ const container1_menu3 = [
   }
   &__menu_container {
     width: 100%;
+    height: auto;
+    overflow-y: auto;
     border-radius: 3px;
     border: 1px solid #B5B5B5;
     display: flex;
     flex-direction: column;
     padding: 20px 15px;
+    box-sizing: border-box;
+    gap: 20px;
   }
   &__menu_subcontainer {
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
   &__title {
     color: #5B5B5B;
