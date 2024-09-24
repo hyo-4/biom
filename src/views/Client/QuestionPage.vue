@@ -62,14 +62,10 @@
               <img src="@/assets/icon/ic_arrow_right.svg" /> 검진장소
             </div>
             <div class="question-page__radio-group">
-              <label>
-                <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-                내원 검진
-              </label>
-              <label>
-                <input type="radio" value="home" v-model="selectedOption" name="options" />
-                출장 검진
-              </label>
+              <label v-for="(option, index) in examOptions" :key="index">
+            <input type="radio" :value="option" v-model="selectedExam" />
+            {{ option }}
+          </label>
             </div>
           </div>
         </div>
@@ -85,29 +81,17 @@
           <div class="question-page__title">
             <img src="@/assets/icon/ic_arrow_right.svg" /> 당일 구강검진 수검자
           </div>
-          <input type="date" class="form-control" v-model="currentDayPatients" required>
+          <input type="date" class="question_page__custom_subcontainer_today_picker" v-model="currentDayPatients" required>
           <div class="question-page__custom_subcontainer_today_button">
             @@
           </div>
         </div>
         <div class="question-page__search">
           <div class="question-page__checkbox-group">
-            <label>
-              <input type="checkbox" value="option1" v-model="selectedOptions" />
-              일반/생애
-            </label>
-            <label>
-              <input type="checkbox" value="option2" v-model="selectedOptions" />
-              영유아
-            </label>
-            <label>
-              <input type="checkbox" value="option3" v-model="selectedOptions" />
-              학생검진
-            </label>
-            <label>
-              <input type="checkbox" value="option4" v-model="selectedOptions" />
-              학교밖
-            </label>
+            <label v-for="(option, index) in locationOptions" :key="index">
+            <input type="checkbox" :value="option" v-model="selectedLocation" />
+            {{ option }}
+          </label>
           </div>
           <input v-model="searchQuery" type="text" class="question-page__search-input" placeholder="검색" />
           <button class="question-page__search-submit" @click="performSearch">검색</button>
@@ -124,111 +108,63 @@
           1. 최근 1년간 구강병 치료나 관리를 목적으로 치과병(의)원에 가신 적이 있습니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            예
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            아니오
+          <label v-for="(option, index) in binaryOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected1" />
+            {{ option }}
           </label>
         </div>
         <div class="question-page__question_container_subtitle">
           2. 현재 당뇨병을 앓고 계십니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            예
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            아니오
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            모르겠다
+          <label v-for="(option, index) in ternaryOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected2" />
+            {{ option }}
           </label>
         </div>
         <div class="question-page__question_container_subtitle">
           3. 현재 심혈관질환을 앓고 계십니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            예
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            아니오
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            모르겠다
+          <label v-for="(option, index) in ternaryOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected3" />
+            {{ option }}
           </label>
         </div>
         <div class="question-page__question_container_subtitle">
           4. 최근 3개월 동안, 치아나 잇몸 문제로 혹은 틀니 때문에 음식을 씹는 데에 불편감을 느끼신 적이 있습니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            예
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            아니오
+          <label v-for="(option, index) in binaryOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected4" />
+            {{ option }}
           </label>
         </div>
         <div class="question-page__question_container_subtitle">
           5. 최근 3개월 동안, 치아가 쑤시거나 욱신거리거나 아픈 적이 있습니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            예
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            아니오
+          <label v-for="(option, index) in binaryOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected5" />
+            {{ option }}
           </label>
         </div>
         <div class="question-page__question_container_subtitle">
           6. 최근 3개월 동안, 잇몸이 아프거나 피가 난 적이 있습니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            예
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            아니오
+          <label v-for="(option, index) in binaryOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected6" />
+            {{ option }}
           </label>
         </div>
         <div class="question-page__question_container_subtitle">
           7. 스스로 생각하실 때에 치아와 잇몸 등 귀하의 구강건강이 어떤 편이라고 생각하십니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            매우 좋음
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            좋음
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            보통
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            나쁨
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            매우 나쁨
+          <label v-for="(option, index) in feedbackOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected7" />
+            {{ option }}
           </label>
         </div>
         <div class="question-page__question_container_title">
@@ -238,46 +174,18 @@
           8. 치아 닦는 방법을 치과나 보건소에서 배운 적이 있습니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            예
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            아니오
+          <label v-for="(option, index) in binaryOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected8" />
+            {{ option }}
           </label>
         </div>
         <div class="question-page__question_container_subtitle">
           9. 어제 하루 동안 치아를 몇 번 닦으셨습니까?
         </div>
         <div class="question-page__radio-group">
-          <label>
-            <input type="radio" value="hospital" v-model="selectedOption" name="options" />
-            0회
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            1회
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            2회
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            3회
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            4회
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            5회
-          </label>
-          <label>
-            <input type="radio" value="home" v-model="selectedOption" name="options" />
-            6회 이상
+          <label v-for="(option, index) in frequencyOptions" :key="index">
+            <input type="radio" :value="option" v-model="selected9" />
+            {{ option }}
           </label>
         </div>
       </div>
@@ -287,6 +195,30 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+//checkbox 옵션
+const locationOptions = ['일반/생애', '영유아', '학생검진', '학교밖'];
+const selectedLocation = ref([]);
+
+//radio 검진장소 옵션
+const examOptions = ['내원 검진', '출장 검진'];
+const selectedExam = ref('');
+
+//radio 문진표 옵션
+const binaryOptions = ['예', '아니오'];
+const ternaryOptions = ['예', '아니오', '모르겠다'];
+const feedbackOptions = ['매우 좋음', '좋음', '보통', '나쁨', '매우 나쁨'];
+const frequencyOptions = ['0회', '1회', '2회', '3회', '4회', '5회', '6회 이상'];
+const selected1 = ref('');
+const selected2 = ref('');
+const selected3 = ref('');
+const selected4 = ref('');
+const selected5 = ref('');
+const selected6 = ref('');
+const selected7 = ref('');
+const selected8 = ref('');
+const selected9 = ref('');
+
+
 
 const examDate = ref('');
 const currentDayPatients = ref('');
@@ -307,14 +239,13 @@ const performSearch= ()=> { //검색 함수
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  gap: 44px;
 
   &__body {
     width: 100%;
     height: 95vh;
     display: flex;
     flex-direction: row;
-    gap: 46px;
+    gap: 40px;
     box-sizing: border-box;
     overflow: hidden;
     position: relative;
@@ -327,7 +258,7 @@ const performSearch= ()=> { //검색 함수
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    gap: 20px;
+    gap: 10px;
   }
   &__custom_subcontainer_row {
     display: flex;
@@ -341,7 +272,7 @@ const performSearch= ()=> { //검색 함수
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
   }
 
   &__custom_subcontainer_top_button {
@@ -367,7 +298,8 @@ const performSearch= ()=> { //검색 함수
     display: flex;
     justify-content: start;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
+    padding-bottom: 14px;
   }
   &__custom_subcontainer_body_button2 {
     display: flex;
@@ -389,7 +321,7 @@ const performSearch= ()=> { //검색 함수
   &__custom_subcontainer_information_text {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 14px;
   }
   &__custom_subcontainer_body {
     height: auto;
@@ -400,7 +332,7 @@ const performSearch= ()=> { //검색 함수
     flex-shrink: 0;
     flex-direction: column;
     box-sizing: border-box;
-    gap: 20px;
+    gap: 10px;
   }
   &__custom_subcontainer_body_row {
     display: flex;
@@ -435,7 +367,7 @@ const performSearch= ()=> { //검색 함수
   &__custom_subcontainer_today {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
   }
   &__custom_subcontainer_today_button {
     flex: 1;
@@ -457,6 +389,7 @@ const performSearch= ()=> { //검색 함수
     display: flex;
     flex-direction: row;
     gap: 10px;
+    padding-bottom: 13px;
   }
   &__search-input {
     width: 8rem;
