@@ -208,7 +208,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
-import MenuPage2 from '../Menu/MenuPage2.vue';
 import ProfilePage from '../Menu/ProfilePage.vue';
 
 const checkOptions = ['정보제공 동의', '알림톡X', '문자거부'];
