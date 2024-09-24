@@ -176,21 +176,21 @@ const detailProfile = () => {
   &__detail_profile_button {
     cursor: pointer;
   }
-}
 
-table {
+  table {
   border-collapse: collapse;
-}
-tr, td {
-    height: 1.5625rem;
-    border: 1px solid #A9A9A9;
-    padding: 0px 5px;
-    /* text */
-    color: #8B8B8B;
-    font-family: Inter;
-    font-size: 0.75rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+    }
+    tr, td {
+        height: 1.5625rem;
+        border: 1px solid #A9A9A9;
+        padding: 0px 5px;
+        /* text */
+        color: #8B8B8B;
+        font-family: Inter;
+        font-size: 0.75rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
 }
 </style>
