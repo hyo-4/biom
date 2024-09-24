@@ -72,7 +72,7 @@
 
 <style lang="scss">
 .profile-page {
-  width: 100%;
+  width: 24%;
   height: 100%;
   padding: 1rem;
   box-sizing: border-box;
@@ -88,9 +88,7 @@
     gap: 5px;
   }
   &__image {
-    width: 150px;
-    height: 150px;
-    flex-shrink: 0;
+    width: 100%;
   }
   &__profile_button {
     flex: 1;
@@ -137,6 +135,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    padding-right: 5px;
   }
   &__profile_information_footer {
     flex: 1;
