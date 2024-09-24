@@ -1,22 +1,22 @@
 <template>
-  <div class="profile-page">
-    <div class="profile-page__left">
-      <img src="@/assets/iv_profile.png" class="profile-page__image-profile" alt="Profile image" />
-      <div class="profile-page__button_wrapper">
-        <div class="profile-page__button" @click="shootProfile">
+  <div class="client-detail-page">
+    <div class="client-detail-page__left">
+      <img src="@/assets/iv_profile.png" class="client-detail-page__image-profile" alt="Profile image" />
+      <div class="client-detail-page__button_wrapper">
+        <div class="client-detail-page__button" @click="shootProfile">
           촬영
         </div>
-        <div class="profile-page__button" @click="openProfile">
+        <div class="client-detail-page__button" @click="openProfile">
           열기
         </div>
-        <div class="profile-page__button" @click="deleteProfile">
+        <div class="client-detail-page__button" @click="deleteProfile">
           삭제
         </div>
       </div>
-      <div class="profile-page__left_container">
+      <div class="client-detail-page__left_container">
         보험정보
-        <div class="profile-page__left_container_body">
-          <div class="profile-page__left_container_body_title">
+        <div class="client-detail-page__left_container_body">
+          <div class="client-detail-page__left_container_body_title">
             <span>
               구분
             </span>
@@ -33,7 +33,7 @@
               공상
             </span>
           </div>
-          <div class="profile-page__left_container_body_table">
+          <div class="client-detail-page__left_container_body_table">
             <table>
               <tr>
                 <td>건강보험</td>
@@ -53,11 +53,11 @@
             </table>
           </div>
         </div>
-        <div class="profile-page__left_container_footer">
+        <div class="client-detail-page__left_container_footer">
           <span>
             본원
           </span>
-          <span class="profile-page__detail_profile_button" @click="detailProfile">
+          <span class="client-detail-page__detail_profile_button" @click="detailProfile">
             상세정보 보기
           </span>
         </div>
@@ -87,7 +87,7 @@ const detailProfile = () => {
 </script>
 
 <style lang="scss">
-.profile-page {
+.client-detail-page {
   width: 25%;
   height: 100%;
   padding: 1rem;
