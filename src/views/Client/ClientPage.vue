@@ -4,7 +4,7 @@
       <div><img src="@/assets/icon/ic_arrow_right.svg" /> VVIP</div>
     </div>
     <div class="client-detail-page__body">
-      <div class="client-detail-page__left"><MenuPage2 /></div>
+      <div class="client-detail-page__left"><ProfilePage /></div>
       <div class="client-detail-page__right">
         <div class="client-detail-page__basic-info">
           <div class="client-detail-page__basic-info_left">
@@ -209,6 +209,7 @@
 import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import MenuPage2 from '../Menu/MenuPage2.vue';
+import ProfilePage from '../Menu/ProfilePage.vue';
 
 const checkOptions = ['정보제공 동의', '알림톡X', '문자거부'];
 const checkedOptions = ref([]);

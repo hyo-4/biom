@@ -15,7 +15,6 @@ const routes = [
   { path: "/menu", component: MenuPage },
   { path: "/client", component: ClientManagePage },
   { path: `/client/:id`, component: ClientPage },
-  { path: "/menu2", component: MenuPage2 },
   { path: "/question", component: QuestionPage },
 ];
 
