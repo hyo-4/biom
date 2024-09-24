@@ -16,10 +16,10 @@
               <img src="@/assets/icon/ic_arrow_right.svg" /> 선택된 검진 대상자 정보
             </div>
             <div class="question-page__custom_subcontainer_body_row">
-              <div class="question-page__custom_subcontainer_body_button">
+              <div class="question-page__custom_subcontainer_body_button" @click="editInfo">
                 정보수정
               </div>
-              <div class="question-page__custom_subcontainer_body_button">
+              <div class="question-page__custom_subcontainer_body_button" @click="deleteInfo">
                 삭제
               </div>
             </div>
@@ -38,7 +38,7 @@
                 • 전화번호 010-4180-8677
               </div>
             </div>
-            <div class="question-page__custom_subcontainer_body_button">
+            <div class="question-page__custom_subcontainer_body_button" @click="checkExam">
               검진포탈<br>자격확인
             </div>
           </div>
@@ -47,7 +47,7 @@
             <div class="question-page__title">
               <img src="@/assets/icon/ic_arrow_right.svg" /> 검진 종류 : 일반 구강검진
             </div>
-            <div class="question-page__custom_subcontainer_body_button">
+            <div class="question-page__custom_subcontainer_body_button" @click="sendExam">
               검진일자<br>공단전송
             </div>
           </div>
@@ -55,7 +55,7 @@
             <div class="question-page__title">
               <img src="@/assets/icon/ic_arrow_right.svg" /> 검진일
             </div>
-            <input type="date" class="form-control" placeholder="년 월 일" v-model="examDate">
+            <input type="date" id="exam-date" placeholder="년 월 일" v-model="examDate">
           </div>
           <div class="question-page__custom_subcontainer_location">
             <div class="question-page__title">
@@ -63,9 +63,9 @@
             </div>
             <div class="question-page__radio-group">
               <label v-for="(option, index) in examOptions" :key="index">
-            <input type="radio" :value="option" v-model="selectedExam" />
-            {{ option }}
-          </label>
+                <input type="radio" :value="option" v-model="selectedExam" />
+                {{ option }}
+              </label>
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
           <div class="question-page__title">
             <img src="@/assets/icon/ic_arrow_right.svg" /> 당일 구강검진 수검자
           </div>
-          <input type="date" class="question_page__custom_subcontainer_today_picker" v-model="currentDayPatients" required>
+          <input type="date" id="current-date" v-model="currentDayPatients">
           <div class="question-page__custom_subcontainer_today_button">
             @@
           </div>
@@ -89,9 +89,9 @@
         <div class="question-page__search">
           <div class="question-page__checkbox-group">
             <label v-for="(option, index) in locationOptions" :key="index">
-            <input type="checkbox" :value="option" v-model="selectedLocation" />
-            {{ option }}
-          </label>
+              <input type="checkbox" :value="option" v-model="selectedLocation" />
+              {{ option }}
+            </label>
           </div>
           <input v-model="searchQuery" type="text" class="question-page__search-input" placeholder="검색" />
           <button class="question-page__search-submit" @click="performSearch">검색</button>
@@ -195,6 +195,20 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+//버튼 함수
+const editInfo = () => {
+  alert("정보수정");
+}
+const deleteInfo = () => {
+  alert("삭제");
+}
+const checkExam = () => {
+  alert("검진포탈 자격확인");
+}
+const sendExam = () => {
+  alert("검진일자 공단전송");
+}
+
 //checkbox 옵션
 const locationOptions = ['일반/생애', '영유아', '학생검진', '학교밖'];
 const selectedLocation = ref([]);
@@ -218,10 +232,11 @@ const selected7 = ref('');
 const selected8 = ref('');
 const selected9 = ref('');
 
-
-
+//date 모델
 const examDate = ref('');
 const currentDayPatients = ref('');
+
+//search 
 const searchQuery = ref(""); //검색어
 const performSearch= ()=> { //검색 함수
     alert(searchQuery.value);
@@ -355,6 +370,7 @@ const performSearch= ()=> { //검색 함수
     padding: 5px 5px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     /* text */
     color: #8B8B8B;
     text-align: center;
@@ -454,7 +470,7 @@ const performSearch= ()=> { //검색 함수
     border: 1px solid #B5B5B5;
     display: flex;
     flex-direction: column;
-    padding: 20px 20px;
+    padding: 40px 40px;
     box-sizing: border-box;
     gap: 20px;
 
@@ -522,6 +538,9 @@ const performSearch= ()=> { //검색 함수
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+  &__radio-group label {
+    margin-right: 10px;
   }
 }
 </style>
