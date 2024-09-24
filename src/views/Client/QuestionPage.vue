@@ -405,7 +405,7 @@ const performSearch= ()=> { //검색 함수
   &__custom_subcontainer_body_row {
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    gap: 10px;
   }
   &__custom_subcontainer_date {
     display: flex;

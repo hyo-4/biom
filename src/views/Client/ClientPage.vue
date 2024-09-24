@@ -191,7 +191,9 @@
                 문서<br />
                 출력
               </button>
-              <button class="client-detail-page__button">문진표</button>
+              <RouterLink to="/question">
+                <button class="client-detail-page__button">문진표</button>
+              </RouterLink>
               <div class="client-detail-page__small-buttons">
                 <button class="client-detail-page__small-button">삭제</button>
                 <button class="client-detail-page__small-button">설정</button>
@@ -205,6 +207,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
+import { RouterLink } from 'vue-router';
 import MenuPage2 from '../Menu/MenuPage2.vue';
 
 const checkOptions = ['정보제공 동의', '알림톡X', '문자거부'];

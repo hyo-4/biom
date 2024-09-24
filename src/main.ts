@@ -7,7 +7,7 @@ import MenuPage from "./views/Menu/MenuPage.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import ClientManagePage from "./views/ClientManage/ClientManagePage.vue";
 import MenuPage2 from "./views/Menu/MenuPage2.vue";
-import QuestionPage from "./views/QuestionPage.vue";
+import QuestionPage from "./views/Client/QuestionPage.vue";
 import ClientPage from "./views/Client/ClientPage.vue";
 
 const routes = [
