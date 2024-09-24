@@ -47,7 +47,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu1" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -57,7 +61,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu2" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -68,7 +76,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu3" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -81,7 +93,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu1" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -91,7 +107,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu2" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -102,7 +122,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu3" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -115,7 +139,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu1" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -125,7 +153,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu2" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -136,7 +168,11 @@
           </div>
           <div class="menu-page__gridwrapper">
             <div v-for="(item, index) in container_menu3" :key="index">
-              <NavButton :title="item.title" :color="item.color" />
+              <NavButton
+                :title="item.title"
+                :color="item.color"
+                :link="item.link"
+              />
             </div>
           </div>
         </div>
@@ -222,7 +258,7 @@ const container_menu1 = [
     {
         title:"환자<br> 인적사항",
         color: "#FFF",
-        link:"",
+        link:"/client",
     },
     {
         title:"예약화면",
