@@ -3,13 +3,13 @@
     <div class="profile-page__left">
       <img src="@/assets/iv_profile.png" class="profile-page__image-profile" alt="Profile image" />
       <div class="profile-page__button_wrapper">
-        <div class="profile-page__button">
+        <div class="profile-page__button" @click="shootProfile">
           촬영
         </div>
-        <div class="profile-page__button">
+        <div class="profile-page__button" @click="openProfile">
           열기
         </div>
-        <div class="profile-page__button">
+        <div class="profile-page__button" @click="deleteProfile">
           삭제
         </div>
       </div>
@@ -57,7 +57,7 @@
           <span>
             본원
           </span>
-          <span>
+          <span class="profile-page__detail_profile_button" @click="detailProfile">
             상세정보 보기
           </span>
         </div>
@@ -67,7 +67,23 @@
 </template>
 
 <script setup lang="ts">
+const shootProfile = () => {
+  //촬영 함수
+  alert("촬영");
 
+}
+const openProfile = () => {
+  //열기 함수
+  alert("열기");
+}
+const deleteProfile = () => {
+  //삭제 함수
+  alert("삭제");
+}
+const detailProfile = () => {
+  //상세정보 보기 함수
+  alert("상세정보");
+}
 </script>
 
 <style lang="scss">
@@ -158,6 +174,7 @@
     padding: 6px 10px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     /* text */
     color: #8B8B8B;
     text-align: center;
@@ -166,6 +183,9 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+  &__detail_profile_button {
+    cursor: pointer;
   }
 }
 
