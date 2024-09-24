@@ -4,7 +4,7 @@
       <div><img src="@/assets/icon/ic_arrow_right.svg" /> VVIP</div>
     </div>
     <div class="client-detail-page__body">
-      <div class="client-detail-page__left">left Container</div>
+      <div class="client-detail-page__left"><MenuPage2 /></div>
       <div class="client-detail-page__right">
         <div class="client-detail-page__basic-info">
           <div class="client-detail-page__basic-info_left">
@@ -205,6 +205,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
+import MenuPage2 from '../Menu/MenuPage2.vue';
 
 const checkOptions = ['정보제공 동의', '알림톡X', '문자거부'];
 const checkedOptions = ref([]);
@@ -236,7 +237,6 @@ const checkedOptions = ref([]);
     }
     &__left {
         flex: 1;
-        background-color: aqua;
     }
     &__right {
         flex: 3;
