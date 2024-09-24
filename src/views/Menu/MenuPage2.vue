@@ -1,8 +1,8 @@
 <template>
   <div class="profile-page">
     <div class="profile-page__left">
-      <img src="@/assets/iv_profile.png" class="profile-page__image" alt="Profile image" />
-      <div class="profile-page__profile_button">
+      <img src="@/assets/iv_profile.png" class="profile-page__image-profile" alt="Profile image" />
+      <div class="profile-page__button_wrapper">
         <div class="profile-page__button">
           촬영
         </div>
@@ -13,10 +13,10 @@
           삭제
         </div>
       </div>
-      <div class="profile-page__profile_information">
+      <div class="profile-page__left_container">
         보험정보
-        <div class="profile-page__profile_information_detail">
-          <div class="profile-page__profile_information_detail_title">
+        <div class="profile-page__left_container_body">
+          <div class="profile-page__left_container_body_title">
             <span>
               구분
             </span>
@@ -33,7 +33,7 @@
               공상
             </span>
           </div>
-          <div class="profile-page__profile_information_detail_table">
+          <div class="profile-page__left_container_body_table">
             <table>
               <tr>
                 <td>건강보험</td>
@@ -53,7 +53,7 @@
             </table>
           </div>
         </div>
-        <div class="profile-page__profile_information_footer">
+        <div class="profile-page__left_container_footer">
           <span>
             본원
           </span>
@@ -72,7 +72,7 @@
 
 <style lang="scss">
 .profile-page {
-  width: 24%;
+  width: 25%;
   height: 100%;
   padding: 1rem;
   box-sizing: border-box;
@@ -87,17 +87,17 @@
     flex-direction: column;
     gap: 5px;
   }
-  &__image {
+  &__image-profile {
     width: 100%;
   }
-  &__profile_button {
+  &__button_wrapper {
     flex: 1;
     display: flex;
     flex-direction: row;
     gap: 5px;
     padding-bottom: 5px;
   }
-  &__profile_information {
+  &__left_container {
     border: 1px solid #A9A9A9;
     flex-shrink: 0;
     padding: 5px 5px;
@@ -110,7 +110,7 @@
     font-weight: 700;
     line-height: normal;
   }
-  &__profile_information_detail {
+  &__left_container_body {
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -118,7 +118,7 @@
     padding-top: 15px;
     padding-bottom: 11px;
   }
-  &__profile_information_detail_title {
+  &__left_container_body_title {
     display: flex;
     flex-direction: column;
     gap: 9px;
@@ -131,13 +131,13 @@
     justify-content: center;
     align-items: center;
   }
-  &__profile_information_detail_table {
+  &__left_container_body_table {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding-right: 5px;
   }
-  &__profile_information_footer {
+  &__left_container_footer {
     flex: 1;
     display: flex;
     flex-direction: column;
