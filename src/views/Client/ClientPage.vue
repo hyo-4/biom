@@ -6,14 +6,14 @@
     <div class="client-detail-page__body">
       <div class="client-detail-page__left">
       <img src="@/assets/iv_profile.png" class="client-detail-page__image-profile" alt="Profile image" />
-      <div class="client-detail-page__button_wrapper">
-        <div class="client-detail-page__button" @click="shootProfile">
+      <div class="client-detail-page__left_button_wrapper">
+        <div class="client-detail-page__left_button" @click="shootProfile">
           촬영
         </div>
-        <div class="client-detail-page__button" @click="openProfile">
+        <div class="client-detail-page__left_button" @click="openProfile">
           열기
         </div>
-        <div class="client-detail-page__button" @click="deleteProfile">
+        <div class="client-detail-page__left_button" @click="deleteProfile">
           삭제
         </div>
       </div>
@@ -325,7 +325,7 @@ const detailProfile = () => {
   &__image-profile {
     width: 100%;
   }
-  &__button_wrapper {
+  &__left_button_wrapper {
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -386,7 +386,7 @@ const detailProfile = () => {
     font-weight: 400;
     line-height: normal;
   }
-  &__button {
+  &__left_button {
     flex: 1;
     flex-shrink: 0;
     border: 1px solid #A9A9A9;
