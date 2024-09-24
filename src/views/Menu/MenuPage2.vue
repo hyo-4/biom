@@ -1,37 +1,25 @@
 <template>
   <div class="profile-page">
     <div class="profile-page__left">
-      <img src="@/assets/iv_profile.png" class="profile-page__image-profile" alt="Profile image" />
+      <img
+        src="@/assets/iv_profile.png"
+        class="profile-page__image-profile"
+        alt="Profile image"
+      />
       <div class="profile-page__button_wrapper">
-        <div class="profile-page__button" @click="shootProfile">
-          촬영
-        </div>
-        <div class="profile-page__button" @click="openProfile">
-          열기
-        </div>
-        <div class="profile-page__button" @click="deleteProfile">
-          삭제
-        </div>
+        <div class="profile-page__button" @click="shootProfile">촬영</div>
+        <div class="profile-page__button" @click="openProfile">열기</div>
+        <div class="profile-page__button" @click="deleteProfile">삭제</div>
       </div>
       <div class="profile-page__left_container">
         보험정보
         <div class="profile-page__left_container_body">
           <div class="profile-page__left_container_body_title">
-            <span>
-              구분
-            </span>
-            <span>
-              가입자
-            </span>
-            <span>
-              증번호
-            </span>
-            <span>
-              사업자
-            </span>
-            <span>
-              공상
-            </span>
+            <span> 구분 </span>
+            <span> 가입자 </span>
+            <span> 증번호 </span>
+            <span> 사업자 </span>
+            <span> 공상 </span>
           </div>
           <div class="profile-page__left_container_body_table">
             <table>
@@ -54,10 +42,11 @@
           </div>
         </div>
         <div class="profile-page__left_container_footer">
-          <span>
-            본원
-          </span>
-          <span class="profile-page__detail_profile_button" @click="detailProfile">
+          <span> 본원 </span>
+          <span
+            class="profile-page__detail_profile_button"
+            @click="detailProfile"
+          >
             상세정보 보기
           </span>
         </div>
@@ -88,9 +77,9 @@ const detailProfile = () => {
 
 <style lang="scss">
 .profile-page {
-  width: 25%;
+  width: 100%;
   height: 100%;
-  padding: 1rem;
+  padding: 10px;
   box-sizing: border-box;
   overflow: hidden;
   position: relative;
