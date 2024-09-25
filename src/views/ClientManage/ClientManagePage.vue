@@ -13,14 +13,14 @@
         </div>
       </div>
       <div class="client-page__header_right">
-        <div>환자 검색</div>
+        <div class="client-page__text">환자 검색</div>
         <input
           v-model="searchQuery"
           type="text"
           class="menu-page__search-input"
           placeholder="검색"
         />
-        <button @click="performSearch">검색</button>
+        <button class="client-page__btn" @click="performSearch">검색</button>
       </div>
     </div>
     <div class="client-page__top-container">
@@ -193,10 +193,11 @@ const selectedExcludes = ref([]);
 const recallFromCheckbox = ref(false);
 const recallFromDuration = ref('1주');
 
-
+// 테이블 항목 이름
 const tableName = [
     "전화날짜","이름","구분","상태","전화번호","해피콜/개별리콜 내용","전화번호","기타 사항","리콜 후 예약,내원","최종 내원일","전화번호","비고","선택",
 ]
+
 
 export interface ClientData {
   "id": string;
@@ -213,6 +214,7 @@ export interface ClientData {
   "선택": boolean;
 }
 
+//Client 더미데이터
 const clientData: ClientData[] = [
   {
     "id": "1",
@@ -315,6 +317,7 @@ const clientData: ClientData[] = [
 
 
 ];
+// bottom 탭 항목 이름
 const tabs = [
   { name: '예약 미이행 환자' },
   { name: '특별관리 환자' },
@@ -430,6 +433,29 @@ function navigateToDetails(client: any) {
     align-items: center;
     box-sizing: border-box;
     height: 100%;
+  }
+  &__text {
+    display: flex;
+    white-space: nowrap;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding-right: 10px;
+    box-sizing: border-box;
+    color: #747474;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &__btn {
+    border: 1px solid #B5B5B5;
+    background-color: white;
+    white-space: nowrap;
+    color: #747474;
+    font-size: 14px;
+    margin-left: 5px;
+    border-radius: 3px;
   }
   &__etc-container {
     padding-left: 10px;
