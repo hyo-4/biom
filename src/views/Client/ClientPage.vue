@@ -12,14 +12,23 @@
               <label for="name" class="client-detail-page__form-label"
                 >이름</label
               >
-              <input class="client-detail-page__input" type="text" />
-              <button>C</button>
+              <input
+                class="client-detail-page__input"
+                type="text"
+                v-model="clientInfo.name"
+                :placeholder="clientInfo.name"
+              />
+              <button @click="handleBtnClick">C</button>
             </div>
             <div class="client-detail-page__form-item">
               <label for="chart-number" class="client-detail-page__form-label"
                 >차트번호</label
               >
-              <input class="client-detail-page__input" type="text" />
+              <input
+                class="client-detail-page__input"
+                type="text"
+                :placeholder="clientInfo.chartNumber"
+              />
               <button>변경</button>
             </div>
             <div class="client-detail-page__form-item">
@@ -29,7 +38,7 @@
               <input
                 class="client-detail-page__input"
                 type="text"
-                placeholder="04321"
+                :placeholder="clientInfo.address"
               />
               <button>검색</button>
             </div>
@@ -44,13 +53,13 @@
               <input
                 class="client-detail-page__input"
                 type="text"
-                placeholder="970704"
+                :placeholder="clientInfo.residentNumber1"
               />
               -
               <input
                 class="client-detail-page__input"
                 type="text"
-                placeholder="000000"
+                :placeholder="clientInfo.residentNumber2"
               />
               <button>공단</button>
             </div>
@@ -58,7 +67,12 @@
               <label for="name" class="client-detail-page__form-label"
                 >생년월일</label
               >
-              <input class="client-detail-page__input" type="text" />
+              <input
+                class="client-detail-page__input"
+                type="text"
+                :placeholder="clientInfo.birthdate"
+                v-model="clientInfo.birthdate"
+              />
               <button>양력</button>
               <input type="checkbox" />
               리콜일로부터
@@ -155,7 +169,12 @@
                 <label for="memo" class="client-detail-page_form-label"
                   >환자 메모</label
                 >
-                <textarea type="text" class="client-detail-page__wide-input" />
+                <textarea
+                  type="text"
+                  class="client-detail-page__wide-input"
+                  :placeholder="clientInfo.memo"
+                  v-model="clientInfo.memo"
+                />
               </div>
             </div>
             <div class="client-detail-page__doctor-info">
@@ -210,8 +229,36 @@ import { ref } from 'vue';
 import { RouterLink } from 'vue-router';
 import ProfilePage from '../Menu/ProfilePage.vue';
 
+//인터페이스
+interface ClientInfo {
+  name: string;
+  chartNumber: string;
+  address: string;
+  addressDetail: string;
+  residentNumber1: string;
+  residentNumber2: string;
+  birthdate: string;
+  memo: string;
+}
+
+const clientInfo = ref<ClientInfo>({
+  name: '박민송',
+  chartNumber: '3241',
+  address: '04323',
+  addressDetail:'서울특별시 용산구 한강대로 372 아스테리움 C동 2층(후암동)',
+  residentNumber1: '970704',
+  residentNumber2: '000000',
+  birthdate: '97-07-04',
+  memo: '-메모내용-',
+});
+
+//check Options
 const checkOptions = ['정보제공 동의', '알림톡X', '문자거부'];
 const checkedOptions = ref([]);
+
+const handleBtnClick = () => {
+  console.log(clientInfo.value);
+};
 </script>
 <style lang="scss">
 .client-detail-page {
