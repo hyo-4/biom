@@ -6,9 +6,10 @@ import MainPage from "./views/Main/MainPage.vue";
 import MenuPage from "./views/Menu/MenuPage.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 import ClientManagePage from "./views/ClientManage/ClientManagePage.vue";
-import MenuPage2 from "./views/Menu/MenuPage2.vue";
 import QuestionPage from "./views/Client/QuestionPage.vue";
 import ClientPage from "./views/Client/ClientPage.vue";
+import CalendarPage from "./views/Calendar/CalendarPage.vue";
+import ReservationPage from "./views/Reservation/ReservationPage.vue";
 
 const routes = [
   { path: "/", component: MainPage },
@@ -16,6 +17,8 @@ const routes = [
   { path: "/client", component: ClientManagePage },
   { path: `/client/:id`, component: ClientPage },
   { path: "/question", component: QuestionPage },
+  { path: "/calendar", component: CalendarPage },
+  { path: "/reservation", component: ReservationPage },
 ];
 
 const biomrouter = createRouter({
