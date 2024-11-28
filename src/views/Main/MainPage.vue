@@ -22,6 +22,9 @@
       <div>
         <RouterLink to="/price">가격 책정 페이지</RouterLink>
       </div>
+      <div>
+        <RouterLink to="/monitor">상담 보드 페이지(사진)</RouterLink>
+      </div>
     </nav>
   </main>
 </template>
