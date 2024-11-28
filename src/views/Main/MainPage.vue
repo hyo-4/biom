@@ -16,6 +16,12 @@
       <div>
         <RouterLink to="/reservation">예약 페이지</RouterLink>
       </div>
+      <div>
+        <RouterLink to="/plan">고객 상담 페이지</RouterLink>
+      </div>
+      <div>
+        <RouterLink to="/price">가격 책정 페이지</RouterLink>
+      </div>
     </nav>
   </main>
 </template>

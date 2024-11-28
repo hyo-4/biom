@@ -10,6 +10,8 @@ import QuestionPage from "./views/Client/QuestionPage.vue";
 import ClientPage from "./views/Client/ClientPage.vue";
 import CalendarPage from "./views/Calendar/CalendarPage.vue";
 import ReservationPage from "./views/Reservation/ReservationPage.vue";
+import PlanPage from "./views/Plan/PlanPage.vue";
+import PricingPage from "./views/Pricing/PricingPage.vue";
 
 const routes = [
   { path: "/", component: MainPage },
@@ -19,6 +21,8 @@ const routes = [
   { path: "/question", component: QuestionPage },
   { path: "/calendar", component: CalendarPage },
   { path: "/reservation", component: ReservationPage },
+  { path: "/plan", component: PlanPage },
+  { path: "/price", component: PricingPage },
 ];
 
 const biomrouter = createRouter({

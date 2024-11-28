@@ -434,6 +434,13 @@ function generateDateRange(startDate: Date, days: number): Date[] {
     position: relative;
     display: flex;
   }
+  &__postitItem {
+    img {
+        min-width: 20px;
+        max-width: 40px;
+        width: 10vw;
+    }
+  }
  &__search-input {
     padding: 10px;
     width: 100%;
