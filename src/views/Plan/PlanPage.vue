@@ -63,8 +63,8 @@
                   </div>
                 </div>
               </div>
-              <div class="plan-page__table-container">
-                <table class="plan-page__table">
+              <div class="plan-page__plan-table">
+                <table>
                   <thead>
                     <tr>
                       <th>확정일</th>
@@ -75,16 +75,16 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(item, index) in treatmentData" :key="index">
-                      <td>{{ item.date }}</td>
+                    <tr v-for="(plan, index) in treatmentData" :key="index">
+                      <td>{{ plan.date }}</td>
                       <td>
-                        <div v-for="(line, idx) in item.plan" :key="idx">
-                          {{ line }}
+                        <div v-for="(detail, i) in plan.plan" :key="i">
+                          {{ detail }}
                         </div>
                       </td>
-                      <td>{{ item.totalCost }}</td>
-                      <td>{{ item.payment }}</td>
-                      <td>{{ item.status }}</td>
+                      <td>{{ plan.totalCost }}</td>
+                      <td>{{ plan.payment }}</td>
+                      <td class="status">{{ plan.status }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -97,8 +97,8 @@
                   </div>
                 </div>
               </div>
-              <div class="plan-page__table-container">
-                <table class="plan-page__table">
+              <div class="plan-page__plan-table">
+                <table>
                   <thead>
                     <tr>
                       <th>작성일</th>
@@ -130,11 +130,13 @@
               </div>
               <div class="plan-page__treatment-plan-content">
                 <div class="plan-page__treatment-plan-title">
-                  <span>• 치료계획 #1 @2020-10-19</span>
+                  <span>치료계획 #1 @2020-10-19</span>
                   <span class="plan-page__doctor-name">Dr.김원장</span>
                 </div>
                 <div class="plan-page__treatment-plan-description">
                   <ol>
+                    <li>[예정] 임플란트, 임시 틀니 제작 (또는)</li>
+                    <li>[예정] 임플란트, 임시 틀니 제작 (또는)</li>
                     <li>[예정] 임플란트, 임시 틀니 제작 (또는)</li>
                   </ol>
                 </div>
@@ -154,23 +156,25 @@
                 <div class="plan-page__search-options">
                   <label> <input type="radio" name="date" /> 월별 </label>
                   <select>
-                    <option>2020년</option>
-                    <option>2021년</option>
+                    <option v-for="year in years" :key="year" :value="year">
+                      {{ year }}년
+                    </option>
                   </select>
                   <select>
-                    <option>08월</option>
-                    <option>09월</option>
+                    <option v-for="month in months" :key="month" :value="month">
+                      {{ month }}월
+                    </option>
                   </select>
                   <label> <input type="radio" name="date" /> 연도별 </label>
                   <select>
-                    <option>2020년</option>
-                    <option>2021년</option>
+                    <option v-for="year in years" :key="year" :value="year">
+                      {{ year }}년
+                    </option>
                   </select>
                   <label> <input type="radio" name="date" /> 특정기간 </label>
                   <input type="date" /> 부터 <input type="date" /> 까지
                 </div>
               </div>
-
               <!-- 검색범위 Section -->
               <div class="plan-page__search-row">
                 <div class="plan-page__search-title">검색범위</div>
@@ -256,110 +260,151 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const searchQuery = ref(""); //검색어
+const searchQuery = ref(''); //검색어
+const years = ref<number[]>([]); // 연도 목록
+const months = ref<number[]>([]);
+const currentYear = new Date().getFullYear();
+
+// 2020년부터 현재 연도까지 연도 배열 생성
+for (let year = 2000; year <= currentYear; year++) {
+  years.value.push(year);
+}
+for (let month = 1; month <= 12; month++) {
+  months.value.push(month);
+}
+
+// eslint-disable-next-line no-unused-vars
 const treatmentData = [
-        {
-          date: "2020-09-29",
-          plan: [
-            "[예정] 상악: 전체 틀니",
-            "[예정] #37~34, 44~47 : 신흥 루나 임플란트, 커",
-            "[예정] 하악 : 부분 틀니"
-          ],
-          totalCost: "17,200,000",
-          payment: "0",
-          status: "진행중"
-        },
-      ];
+  {
+    date: '2020-09-29',
+    plan: [
+      '[예정] 상악: 전체 틀니',
+      '[예정] #37~34, 44~47 : 신흥 루나 임플란트, 커',
+      '[예정] 하악 : 부분 틀니'
+    ],
+    totalCost: '17,200,000',
+    payment: '0',
+    status: '진행중'
+  },
+  {
+    date: '2020-09-29',
+    plan: ['[예정] 상악: 전체 틀니'],
+    totalCost: '17,200,000',
+    payment: '0',
+    status: '진행중'
+  },
+  {
+    date: '2020-09-29',
+    plan: ['[예정] 상악: 전체 틀니'],
+    totalCost: '17,200,000',
+    payment: '0',
+    status: '진행중'
+  },
+  {
+    date: '2020-09-29',
+    plan: ['[예정] 상악: 전체 틀니'],
+    totalCost: '17,200,000',
+    payment: '0',
+    status: '진행중'
+  }
+];
 // eslint-disable-next-line no-unused-vars
 const treatmentData2 = [
-        {
-          date: "2020-09-29",
-          plan: "전악 : 신흥 루나 임플란트, 커스텀 어버트먼트, 지르코니아 보철(#13~23,3 ...",
-          totalCost: "17,200,000",
-          status: "수정"
-        },
-        {
-          date: "2020-09-29",
-          plan: "전악 : 전체 틀니",
-          totalCost: "17,200,000",
-          status: "수정"
-        },
-      ];
-// eslint-disable-next-line no-unused-vars
-const treatmentData3 =  Array.from({ length: 25 }, (_, i) => ({
-        patientInfo: `오렌지(${1493 + i})`,
-        date: "2020-09-29",
-        progress: i === 19 ? "치료종결" : "진행중",
-        paymentStatus: i === 19 ? "미납료" : "완료",
-        treatmentPlan: [
-          "@@@@@@@@@@@@@@@@@@@@@@@@@"
-        ],
-        treatmentCost: "17,200,000",
-        currentPayment: "17,200,000",
-      }));
-const postitItem = [
-    {
-        name: "post1",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post2",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post3",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post4",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post5",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post6",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post7",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post8",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post9",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post10",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post11",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post12",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post13",
-        icon: require('@/assets/post_it.png')
-    },
-    {
-        name: "post14",
-        icon: require('@/assets/post_it.png')
-    },
-]
-const activeTab = ref(0);
-const tabs = [
-  { name: '치료비용계획' },
-  { name: '상담 보드' },
+  {
+    date: '2020-09-29',
+    plan: '전악 : 신흥 루나 임플란트, 커스텀 어버트먼트, 지르코니아 보철(#13~23,3 ...',
+    totalCost: '17,200,000',
+    status: '수정'
+  },
+  {
+    date: '2020-09-29',
+    plan: '전악 : 전체 틀니',
+    totalCost: '17,200,000',
+    status: '수정'
+  },
+  {
+    date: '2020-09-29',
+    plan: '전악 : 전체 틀니',
+    totalCost: '17,200,000',
+    status: '수정'
+  },
+  {
+    date: '2020-09-29',
+    plan: '전악 : 전체 틀니',
+    totalCost: '17,200,000',
+    status: '수정'
+  }
 ];
+// eslint-disable-next-line no-unused-vars
+const treatmentData3 = Array.from({ length: 25 }, (_, i) => ({
+  patientInfo: `오렌지(${1493 + i})`,
+  date: '2020-09-29',
+  progress: i === 19 ? '치료종결' : '진행중',
+  paymentStatus: i === 19 ? '미납료' : '완료',
+  treatmentPlan: ['@@@@@'],
+  treatmentCost: '17,200,000',
+  currentPayment: '17,200,000'
+}));
+const postitItem = [
+  {
+    name: 'post1',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post2',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post3',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post4',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post5',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post6',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post7',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post8',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post9',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post10',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post11',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post12',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post13',
+    icon: require('@/assets/post_it.png')
+  },
+  {
+    name: 'post14',
+    icon: require('@/assets/post_it.png')
+  }
+];
+const activeTab = ref(0);
+const tabs = [{ name: '치료비용계획' }, { name: '상담 보드' }];
 </script>
 
 <style lang="scss">
@@ -370,7 +415,7 @@ const tabs = [
   padding: 1rem;
   box-sizing: border-box;
   position: relative;
-  color: #5B5B5B;
+  color: #5b5b5b;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -412,15 +457,15 @@ const tabs = [
     gap: 10px;
   }
   &__title {
-    color: #5B5B5B;
+    color: #5b5b5b;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 
     span {
-        color: #828282;
-        font-weight: 400;
+      color: #828282;
+      font-weight: 400;
     }
   }
   //탭
@@ -435,8 +480,8 @@ const tabs = [
   }
   &__tab-button {
     border: none;
-    color:#9B9B9B;
-    background-color: #E8E8E8;
+    color: #9b9b9b;
+    background-color: #e8e8e8;
     cursor: pointer;
     padding: 10px;
     max-height: 40px;
@@ -478,87 +523,88 @@ const tabs = [
     border: 1px solid #ccc;
 
     tbody {
-        max-height: 400px;
-        overflow-y: auto;
+      max-height: 400px;
+      overflow-y: auto;
     }
 
-    th, td {
-        padding: 5px;
-        width: 100%;
-        max-width: 100%;
-        height: 10px;
-        text-align: left;
-        border: 1px solid #ccc;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        }
+    th,
+    td {
+      padding: 5px;
+      width: 100%;
+      max-width: 100%;
+      height: 10px;
+      text-align: left;
+      border: 1px solid #ccc;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-        th {
-        background-color: #f2f2f2;
-        }
+    th {
+      background-color: #f2f2f2;
+    }
 
-        td {
-        height: 10px;
-        background-color: #f9f9f9;
-        }
-}
+    td {
+      height: 10px;
+      background-color: #f9f9f9;
+    }
+  }
 
-//치료비용계획 현황
-&__treatment-container {
-  max-width: 100%;
-  max-height: calc(100vh - 230px);
-}
+  //치료비용계획 현황
+  &__treatment-container {
+    max-width: 100%;
+    max-height: calc(100vh - 230px);
+  }
 
-&__treatment-table-container {
+  &__treatment-table-container {
     max-height: calc(100vh - 360px);
     overflow-y: auto;
-}
-&__treatment-plan-content {
+  }
+  &__treatment-plan-content {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
   }
-&__treatment-plan-description {
-      font-size: 14px;
+  &__treatment-plan-description {
+    font-size: 14px;
 
-      ol {
-        padding-left: 20px;
-        margin: 0;
+    ol {
+      padding-left: 20px;
+      margin: 0;
 
-        li {
-          margin-bottom: 5px;
-          font-size: 14px;
-          line-height: 1.5;
-        }
+      li {
+        margin-bottom: 5px;
+        font-size: 14px;
+        line-height: 1.5;
       }
     }
-&__treatment-plan-title {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 10px;
+  }
+  &__treatment-plan-title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
 
-      span {
-        font-size: 14px;
+    span {
+      font-size: 14px;
     }
-}
-&__doctor-name {
-          font-size: 12px;
-          color: #555;
-        }
-&__top-container {
+  }
+  &__doctor-name {
+    font-size: 12px;
+    color: #555;
+  }
+  &__top-container {
     display: flex;
     flex-direction: row;
     width: 100%;
     gap: 10px;
     justify-content: space-between;
     height: auto;
-}
-&__filter-container {
+  }
+  &__filter-container {
     width: 80%;
     border-radius: 3px;
     box-sizing: border-box;
-    border: 1px solid #B5B5B5;
+    border: 1px solid #b5b5b5;
     display: flex;
   }
   &__filter-search {
@@ -578,18 +624,18 @@ const tabs = [
   &__search-row:last-child {
     border-bottom: none;
   }
-  &__search-title{
+  &__search-title {
     width: 4.5rem;
     padding: 5px;
     min-width: 4.5rem;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     height: 100%;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    border-right: 1px solid #B5B5B5;
+    border-right: 1px solid #b5b5b5;
   }
   &__btn-wrapper {
     display: flex;
@@ -603,8 +649,8 @@ const tabs = [
     flex: 1;
     align-items: center;
     justify-content: center;
-    background-color: #C6D5F1;
-    border: #B5B5B5;
+    background-color: #c6d5f1;
+    border: #b5b5b5;
   }
   &__btn-group {
     display: flex;
@@ -614,47 +660,105 @@ const tabs = [
     justify-content: space-between;
   }
   &__btn--small {
-      font-size: 0.8rem;
-      height: 50%;
-      background-color: #CFCFCF;
-      border: none;
-      overflow: hidden;
+    font-size: 0.8rem;
+    height: 50%;
+    background-color: #cfcfcf;
+    border: none;
+    overflow: hidden;
   }
   //필터링 옵션
   &__search-options {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        font-size: 14px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
 
-        input[type="radio"],
-        input[type="checkbox"] {
-          margin-right: 2px;
-        }
+    input[type='radio'],
+    input[type='checkbox'] {
+      margin-right: 2px;
+    }
 
-        input[type="text"] {
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
+    input[type='text'] {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-        input[type="date"] {
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
+    input[type='date'] {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-        select {
-          border: 1px solid #ccc;
-          border-radius: 4px;
-        }
+    select {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
 
-        .search-button {
-          padding: 5px 10px;
-          border: 1px solid #ccc;
-          background-color: #f2f2f2;
-          border-radius: 4px;
-          cursor: pointer;
+    .search-button {
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      background-color: #f2f2f2;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+  //표
+  &__plan-table {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    height: 250px;
+    border-collapse: collapse;
+    border-top: 1px solid #d9d9d9;
+    overflow-y: auto;
+
+    table {
+      width: 100%;
+      border-collapse: collapse; /* Ensure borders don't double */
+      text-align: left;
+
+      thead {
+        background-color: #f9f9f9;
+        position: sticky; /* Keep the header fixed during scroll */
+        top: 0;
+        z-index: 1;
+
+        th {
+          border: 1px solid #d9d9d9;
+          border-top: none;
+          padding: 10px;
+          font-weight: bold;
         }
-     }
+      }
+
+      tbody {
+        tr {
+          &:nth-child(odd) {
+            background-color: #fafafa; /* Alternating row colors */
+          }
+
+          &:nth-child(even) {
+            background-color: #ffffff;
+          }
+
+          td {
+            border: 1px solid #d9d9d9;
+            border-top: none;
+            padding: 10px;
+            vertical-align: top;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .status {
+            color: #007bff;
+            font-weight: bold;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

@@ -315,6 +315,7 @@ const pictures = [
 
     button {
       height: 50%;
+      cursor: pointer;
       border: 1px solid #b5b5b5;
     }
   }
@@ -357,6 +358,7 @@ const pictures = [
       background-color: #828282;
       color: white;
       border: none;
+      cursor: pointer;
     }
   }
 }
