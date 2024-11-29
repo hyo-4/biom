@@ -341,7 +341,7 @@ const treatmentData3 = Array.from({ length: 25 }, (_, i) => ({
   date: '2020-09-29',
   progress: i === 19 ? '치료종결' : '진행중',
   paymentStatus: i === 19 ? '미납료' : '완료',
-  treatmentPlan: ['@@@@@@@@@@@@@@@@@@@@@@@@@'],
+  treatmentPlan: ['@@@@@'],
   treatmentCost: '17,200,000',
   currentPayment: '17,200,000'
 }));
@@ -708,6 +708,8 @@ const tabs = [{ name: '치료비용계획' }, { name: '상담 보드' }];
     flex-direction: column;
     background-color: white;
     height: 250px;
+    border-collapse: collapse;
+    border-top: 1px solid #d9d9d9;
     overflow-y: auto;
 
     table {
@@ -723,6 +725,7 @@ const tabs = [{ name: '치료비용계획' }, { name: '상담 보드' }];
 
         th {
           border: 1px solid #d9d9d9;
+          border-top: none;
           padding: 10px;
           font-weight: bold;
         }
